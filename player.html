@@ -180,7 +180,7 @@
       }
     ];
 
-    let playerId = "", playerName = "", myScore = 0, currentQ = 0, qStartTime = 0, answered = false;
+    let playerId = "", playerName = "", myScore = 0, currentQ = 0, qStartTime = 0, answered = false, lastRenderedQ = -1;
 
     function joinRoom() {
       const input = document.getElementById('player-name');
@@ -231,8 +231,7 @@
       const container = document.getElementById('options-container');
       container.innerHTML = '';
 
-      // Acak pilihan jawaban untuk tiap pemain
-      const shuffled = [...q.options].sort(() => Math.random() - 0.5);
+      const shuffled = [...q.options];
 
       shuffled.forEach(opt => {
         const btn = document.createElement('button');
